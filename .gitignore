@@ -1,0 +1,60 @@
+# -------------------------
+# Build / Object files
+# -------------------------
+*.o
+*.ko
+*.obj
+*.elf
+*.ilk
+*.map
+*.exp
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+**/main         # 可忽略特定可執行檔
+**/bin/*        # 忽略 bin 下所有內容
+bin/
+
+# Debug / temporary files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+*.dwo
+*.log
+*.tmp
+
+# Kernel module / Linux specific
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# -------------------------
+# Project-specific data
+# -------------------------
+**/data/generated/
