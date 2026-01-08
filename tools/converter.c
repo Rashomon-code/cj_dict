@@ -20,7 +20,7 @@ int main(void){
     while(fgets(line, LINE_SIZE, txt_file)){
         memset(&record, 0, sizeof(cangjie_record));
         
-        if(sscanf(line, "%7s %7s", record.code, record.word) == 2){
+        if(sscanf(line, "%7s %7s", record.code, record.character) == 2){
             fwrite(&record, sizeof(cangjie_record), 1, bin_file);
             count++;
         }
