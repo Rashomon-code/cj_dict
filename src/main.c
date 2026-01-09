@@ -5,10 +5,17 @@
 int main(void){
     int running = 1;
     char target[CHAR_SIZE];
+    cangjie_record *dict = NULL;
+
+    int check = init_cj(&dict);
+    if(check == -1){
+        perror("Init");
+        return -1;
+    }
 
     while(running){
-        printf("輸入單個漢字(退出:q): ");
-        int check = get_target(target, CHAR_SIZE);
+        printf("輸入單個漢字(退出:q):\n");
+        check = get_target(target, CHAR_SIZE);
 
         if(check == 1){
             printf("Bye.\n");

@@ -29,8 +29,8 @@ int get_target(char *target, size_t size){
             return 1;
         }
 
-        if(!is_singal_character(target)){
-            printf("目前只支持單個漢字\n");
+        if(!is_singal_character((unsigned char *)target)){
+            printf("暫不支持該文字\n");
             continue;
         }
 
@@ -40,6 +40,15 @@ int get_target(char *target, size_t size){
     return 0;
 }
 
-int is_singal_character(const char *character){
+int is_singal_character(const unsigned char *character){
+    unsigned char ch0 = character[0];
+    if((ch0 & 0xF0) == 0xE0){
+        return (character[1] & 0xC0) == 0x80 && (character[2] & 0xC0) == 0x80;
+    }
+
+    if((ch0 & 0xF8) == 0xF0){
+        return (character[1] & 0xC0) == 0x80 && (character[2] & 0xC0) == 0x80 && (character[3] & 0xC0) == 0x80;
+    }
+
     return 0;
 }
